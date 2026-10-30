@@ -1,0 +1,26 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+.taskCard {
+  @include card; margin-bottom: 10px; cursor: grab;
+  border: 1px solid $color-border;
+  &:active { cursor: grabbing; }
+}
+.taskHeader { display: flex; align-items: flex-start; gap: 7px; }
+.dragIcon { color: $color-text-hint; cursor: grab; flex-shrink: 0; margin-top: 2px; }
+.taskTitle { margin: 0 0 5px; flex: 1; font-size: 13px; font-weight: 800; line-height: 1.45; }
+.taskDescription { margin: 0 0 0 20px; font-size: 12px; color: $color-text-muted; line-height: 1.55; }
+.taskActions { margin: 10px 0 0 20px; display: flex; gap: 6px; align-items: center; }
+.actionButton { @include button-base; padding: 5px 8px; background: var(--input-bg); }
+.menuWrapper { position: relative; }
+.dropdownMenu {
+  position: absolute; top: 24px; left: 0; background: $color-bg;
+  border: 1px solid $color-border; border-radius: $radius-sm;
+  box-shadow: $shadow-md; z-index: 10; min-width: 160px; padding: 4px 0;
+}
+.menuItem {
+  width: 100%; padding: 9px 12px; background: none; border: none;
+  color: $color-text; cursor: pointer; display: flex; align-items: center;
+  gap: 8px; font-size: 13px; text-align: left;
+  &:hover { background: $color-column-bg; }
+}
+.menuItemDanger { @extend .menuItem; color: $color-danger; &:hover { background: var(--danger-bg); } }

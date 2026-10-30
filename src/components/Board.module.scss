@@ -1,0 +1,34 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+.board {
+  display: flex; gap: 18px; padding: 24px 28px 110px;
+  align-items: stretch; overflow-x: auto; min-height: calc(100vh - 105px);
+}
+.addColumnWrap { min-width: $column-width; }
+.addColumnButton {
+  @include button-base; width: 100%; justify-content: center;
+  padding: 11px 14px; border-style: dashed; color: $color-text-muted;
+  background: transparent;
+}
+.newColumnForm {
+  background: $color-column-bg; border: 1px solid $color-border;
+  border-radius: $radius-md; padding: 14px;
+  input {
+    width: 100%; padding: 10px 12px; margin-bottom: 10px;
+    border: 1px solid $color-border; border-radius: $radius-sm;
+    color: $color-text; background: var(--input-bg); outline: none;
+  }
+}
+.formActions { display: flex; gap: 8px;
+  button { @include button-primary; padding: 8px 12px; }
+  .secondaryButton { @include button-base; }
+}
+.floatingAdd {
+  position: fixed; right: 24px; bottom: 24px; z-index: 15;
+  @include button-primary; padding: 12px 18px; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(70, 120, 230, .28);
+}
+@media (max-width: 600px) {
+ .board { padding: 18px 14px 100px; }
+ .floatingAdd { right: 14px; bottom: 14px; }
+}

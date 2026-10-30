@@ -1,0 +1,18 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+.column {
+  @include column;
+  display: flex; flex-direction: column; min-height: $column-min-height;
+  border: 1px solid $color-border;
+}
+.dragOver { background: $color-column-drag; box-shadow: $shadow-drag; }
+.columnHeader { @include flex-between; margin-bottom: 14px; gap: 8px; }
+.columnTitle { margin: 0; color: $color-text; font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
+.columnActions { display: flex; gap: 6px; }
+.actionButton {
+  @include button-base; padding: 6px; color: $color-text-muted;
+  background: var(--input-bg);
+  &:hover:not(:disabled) { color: $color-text; border-color: $color-primary; }
+}
+.empty { @include empty-state; border-color: $color-border; }
+.emptyHint { color: $color-text-hint; font-size: 13px; margin: 0; }

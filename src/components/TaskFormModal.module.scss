@@ -1,0 +1,91 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-overlay;
+  @include flex-center;
+  z-index: 1000;
+}
+
+.form {
+  background: $color-bg;
+  padding: $spacing-xl;
+  border-radius: $radius-md;
+  min-width: $modal-min-width;
+  box-shadow: $shadow-modal;
+}
+
+.formHeader {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+}
+
+.formTitle {
+  margin: 0;
+}
+
+.closeButton {
+  @include icon-button;
+}
+
+.field {
+  margin-bottom: $spacing-sm;
+}
+
+.label {
+  display: block;
+  margin-bottom: $spacing-xs;
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: $spacing-sm;
+  border: 1px solid $color-border-dashed;
+  border-radius: $radius-sm;
+  font-family: inherit;
+  font-size: 14px;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.actions {
+  margin-top: $spacing-lg;
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.button {
+  @include button-base;
+  padding: $spacing-sm $spacing-md;
+}
+
+.primaryButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-md;
+}
+
+@media (max-width: 480px) {
+  .form {
+    min-width: 0;
+    width: calc(100vw - 28px);
+    padding: 18px;
+  }
+}

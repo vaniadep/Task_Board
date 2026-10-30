@@ -1,0 +1,93 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin button-base {
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-bg;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  transition: background 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-column-bg;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $color-primary;
+  color: white;
+  border-color: $color-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+    border-color: $color-primary-hover;
+  }
+}
+
+@mixin card {
+  background: $color-card-bg;
+  border-radius: $radius-sm;
+  padding: $spacing-sm;
+  box-shadow: $shadow-sm;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin column {
+  background: $color-column-bg;
+  border-radius: $radius-md;
+  padding: $spacing-sm;
+  width: $column-width;
+  min-height: $column-min-height;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+@mixin empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border: 2px dashed $color-border-dashed;
+  border-radius: $radius-md;
+  margin-top: $spacing-sm;
+}
+
+@mixin icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs;
+  display: inline-flex;
+  align-items: center;
+  color: $color-text-muted;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-text;
+  }
+}
